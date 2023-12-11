@@ -1,0 +1,21 @@
+USE tf1GuilhermeMoreiraAnaPereira;
+
+CREATE ROLE ADMINISTRADOR;
+GRANT ALL TO ADMINISTRADOR;
+
+CREATE USER 'dono'@'localhost' IDENTIFIED BY '@dono';
+GRANT ADMINISTRADOR TO 'dono'@'localhost';
+
+CREATE USER 'socio'@'localhost' IDENTIFIED BY 'socio!!';
+GRANT ADMINISTRADOR TO 'socio'@'localhost';
+
+CREATE ROLE FUNCIONARIO;
+GRANT INSERT, SELECT, DELETE TO FUNCIONARIO;
+
+CREATE USER 'maria'@'localhost' IDENTIFIED BY 'maria123';
+GRANT FUNCIONARIO TO 'maria'@'localhost';
+
+CREATE USER 'jose'@'localhost' IDENTIFIED BY 'zezao';
+GRANT FUNCIONARIO TO 'jose'@'localhost';
+
+FLUSH PRIVILEGES;
