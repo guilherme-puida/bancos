@@ -1,20 +1,22 @@
 -- -------- < TF1 > --------
 --
---            SCRIPT DE CRIACAO (DDL)
+--            SCRIPT DE CRIACAO
 --
--- Data Criacao ...........: 04/12/2023
+-- Data Criacao ...........: 11/12/2023
 -- Autor(es) ..............: Ana Letícia Pereira
 --                           Guilherme Puida Moreira
 -- Banco de Dados .........: MySQL 8.0
--- Base de Dados (nome) ...: tf1GuilhermeMoreiraAnaPereira
+-- Base de Dados (nome) ...: TF_1B1_guilhermemoreira;
 --
 -- PROJETO => 01 Base de Dados
 --         => 13 Tabelas
+--         => 4 Usuários
+--         => 2 Papéis
 --
 -- ---------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS tf1GuilhermeMoreiraAnaPereira;
+CREATE DATABASE IF NOT EXISTS TF_1B1_guilhermemoreira;
 
-USE tf1GuilhermeMoreiraAnaPereira;
+USE TF_1B1_guilhermemoreira;
 
 CREATE TABLE PESSOA
   (
@@ -103,8 +105,8 @@ CREATE TABLE CONTA
     valorInternet   REAL NOT NULL,
     valorEnergia    REAL NOT NULL,
     valorAluguel    REAL NOT NULL,
-    valorOutros     REAL NOT NULL,
-    descricaoOutros VARCHAR(100) NOT NULL,
+    valorOutros     REAL,
+    descricaoOutros VARCHAR(100),
 
     CONSTRAINT conta_PK PRIMARY KEY (idConta),
     CONSTRAINT conta_LOJA_FK FOREIGN KEY (idLoja) references LOJA (idLoja) ON DELETE RESTRICT
@@ -145,7 +147,7 @@ CREATE TABLE PRODUTO
   (
      idProduto    INT NOT NULL auto_increment,
      nome         VARCHAR(100) NOT NULL,
-     descricao    VARCHAR(500) NOT NULL,
+     descricao    VARCHAR(500),
      preco        REAL NOT NULL,
      tipo         VARCHAR(100) NOT NULL,
      altura       REAL NOT NULL,

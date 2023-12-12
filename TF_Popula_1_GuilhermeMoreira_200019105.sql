@@ -2,18 +2,20 @@
 --
 --            SCRIPT DE POPULACAO
 --
--- Data Criacao ...........: 04/12/2023
+-- Data Criacao ...........: 11/12/2023
 -- Autor(es) ..............: Ana Letícia Pereira
 --                           Guilherme Puida Moreira
 -- Banco de Dados .........: MySQL 8.0
--- Base de Dados (nome) ...: tf1GuilhermeMoreiraAnaPereira
+-- Base de Dados (nome) ...: TF_1B1_guilhermemoreira;
 --
 -- PROJETO => 01 Base de Dados
 --         => 13 Tabelas
+--         => 4 Usuários
+--         => 2 Papéis
 --
 -- ---------------------------------------------------------
 
-USE tf1GuilhermeMoreiraAnaPereira;
+USE TF_1B1_guilhermemoreira;
 
 INSERT INTO PESSOA (telefone, nome, sobrenome, endereco, dataNascimento)
 VALUES
