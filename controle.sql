@@ -1,21 +1,19 @@
-USE tf1GuilhermeMoreiraAnaPereira;
+CREATE ROLE administrador;
+GRANT ALL ON tf1GuilhermeMoreiraAnaPereira.* TO administrador;
 
-CREATE ROLE ADMINISTRADOR;
-GRANT ALL TO ADMINISTRADOR;
+CREATE USER dono IDENTIFIED BY '@dono';
+GRANT administrador TO dono;
 
-CREATE USER 'dono'@'localhost' IDENTIFIED BY '@dono';
-GRANT ADMINISTRADOR TO 'dono'@'localhost';
+CREATE USER socio IDENTIFIED BY 'socio!!';
+GRANT administrador TO socio;
 
-CREATE USER 'socio'@'localhost' IDENTIFIED BY 'socio!!';
-GRANT ADMINISTRADOR TO 'socio'@'localhost';
+CREATE ROLE funcionario;
+GRANT INSERT, SELECT, DELETE ON tf1GuilhermeMoreiraAnaPereira.* TO funcionario;
 
-CREATE ROLE FUNCIONARIO;
-GRANT INSERT, SELECT, DELETE TO FUNCIONARIO;
+CREATE USER maria IDENTIFIED BY 'maria123';
+GRANT funcionario TO maria;
 
-CREATE USER 'maria'@'localhost' IDENTIFIED BY 'maria123';
-GRANT FUNCIONARIO TO 'maria'@'localhost';
-
-CREATE USER 'jose'@'localhost' IDENTIFIED BY 'zezao';
-GRANT FUNCIONARIO TO 'jose'@'localhost';
+CREATE USER jose IDENTIFIED BY 'zezao';
+GRANT funcionario TO jose;
 
 FLUSH PRIVILEGES;

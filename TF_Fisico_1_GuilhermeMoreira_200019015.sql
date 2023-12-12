@@ -181,8 +181,8 @@ CREATE TABLE CAIXA
   (
      idCaixa        INT NOT NULL auto_increment,
      idLoja         INT NOT NULL,
-     dataHoraAbertura   DATE NOT NULL,
-     dataHoraFechamento DATE,
+     dataHoraAbertura   TIMESTAMP NOT NULL,
+     dataHoraFechamento TIMESTAMP,
      valorInicial   REAL NOT NULL,
      valorFinal     REAL,
 
@@ -199,7 +199,7 @@ CREATE TABLE VENDA
      idCaixa        INT NOT NULL,
      idCliente      INT NOT NULL,
      data           DATE NOT NULL,
-     formaPagamento ENUM('CD', 'CD', 'P', 'D', 'V') NOT NULL,
+     formaPagamento ENUM('CD', 'CC', 'P', 'D', 'V') NOT NULL,
      local          VARCHAR(100) NOT NULL,
      parcelas       INT,
 

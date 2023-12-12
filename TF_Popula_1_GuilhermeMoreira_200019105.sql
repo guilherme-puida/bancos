@@ -58,13 +58,21 @@ VALUES
 ('98765432101234', 'Empresa F', 6),
 ('12345678901234', 'Empresa G', 7);
 
-INSERT INTO LOJA (cnpj, endereco, valorAgua, valorInternet, valorEnergia, valorAluguel, impostos)
+INSERT INTO LOJA (cnpj, endereco)
 VALUES
-('01234567890123', 'Rua X, 567', 1000.00, 500.00, 800.00, 1500.00, 300.00),
-('98765432109876', 'Avenida Y, 890', 1200.00, 600.00, 1000.00, 1800.00, 350.00),
-('11223344556677', 'Rua Z, 111', 800.00, 400.00, 600.00, 1200.00, 250.00),
-('55667788990011', 'Avenida W, 222', 1500.00, 700.00, 1200.00, 2000.00, 400.00),
-('99988877766655', 'Rua V, 333', 1100.00, 550.00, 900.00, 1600.00, 320.00);
+('01234567890123', 'Rua X, 567'),
+('98765432109876', 'Avenida Y, 890'),
+('11223344556677', 'Rua Z, 111'),
+('55667788990011', 'Avenida W, 222'),
+('99988877766655', 'Rua V, 333');
+
+INSERT INTO CONTA (idLoja, ano, mes, valorAgua, valorInternet, valorEnergia, valorAluguel, valorOutros, descricaoOutros)
+VALUES
+(1, 2023, 7, 100, 100, 100, 100, 0, ''),
+(1, 2023, 8, 100, 100, 100, 100, 0, ''),
+(1, 2023, 8, 100, 100, 100, 100, 0, ''),
+(1, 2023, 10, 100, 100, 100, 100, 0, ''),
+(1, 2023, 11, 200, 200, 200, 200, 200, 'Seguro');
 
 INSERT INTO FUNCIONARIO (cpf, area, cargo, dataAdmissao, salario, horaExtra, comissao, idPessoa, idLoja, dataTerminoContrato)
 VALUES
@@ -92,27 +100,27 @@ VALUES
 
 INSERT INTO ESTOQUE (idLoja, idProduto, idFornecedor, responsavelEntrada, endereco, quantidade, troca)
 VALUES
-(1, 1, 1, '12345678901', 'Rua X, 567', 50, 0),
-(2, 2, 2, '98765432109', 'Avenida Y, 890', 100, 1),
-(3, 3, 3, '11122233344', 'Rua Z, 111', 30, 0),
-(4, 4, 4, '55566677788', 'Avenida W, 222', 80, 1),
-(5, 5, 5, '99988877766', 'Rua V, 333', 60, 0);
+(1, 1, 1, '12345678901', 'Rua X, 567', 50, 'N'),
+(2, 2, 2, '98765432109', 'Avenida Y, 890', 100, 'S'),
+(3, 3, 3, '11122233344', 'Rua Z, 111', 30, 'N'),
+(4, 4, 4, '55566677788', 'Avenida W, 222', 80, 'S'),
+(5, 5, 5, '99988877766', 'Rua V, 333', 60, 'N');
 
-INSERT INTO CAIXA (idLoja, dataAbertura, dataFechamento, valorInicial, valorFinal)
+INSERT INTO CAIXA (idLoja, dataHoraAbertura, dataHoraFechamento, valorInicial, valorFinal)
 VALUES
-(1, '2023-01-01', NULL, 5000.00, NULL),
-(2, '2023-02-01', '2023-02-28', 6000.00, 6200.00),
-(3, '2023-03-01', '2023-03-15', 7000.00, 7200.00),
-(4, '2023-04-01', NULL, 5500.00, NULL),
-(5, '2023-05-01', NULL, 8000.00, NULL);
+(1, '2023-01-01 00:00:00', NULL, 5000.00, NULL),
+(2, '2023-02-01 00:00:00', '2023-02-28 00:00:00', 6000.00, 6200.00),
+(3, '2023-03-01 00:00:00', '2023-03-15 00:00:00', 7000.00, 7200.00),
+(4, '2023-04-01 00:00:00', NULL, 5500.00, NULL),
+(5, '2023-05-01 00:00:00', NULL, 8000.00, NULL);
 
-INSERT INTO VENDA (data, formaPagamento, local, idCliente, cpfFuncionario, idCaixa)
+INSERT INTO VENDA (data, formaPagamento, local, idCliente, cpfFuncionario, idCaixa, parcelas)
 VALUES
-('2023-01-10', 'Cartão', 'Loja 1', 1, '12345678901', 1),
-('2023-02-20', 'Dinheiro', 'Loja 2', 2, '98765432109', 2),
-('2023-03-05', 'Boleto', 'Loja 3', 3, '11122233344', 3),
-('2023-04-15', 'Cartão', 'Loja 4', 4, '55566677788', 4),
-('2023-05-25', 'Dinheiro', 'Loja 5', 5, '99988877766', 5);
+('2023-01-10', 'CC', 'Loja 1', 1, '12345678901', 1, 0),
+('2023-02-20', 'D', 'Loja 2', 2, '98765432109', 2, 0),
+('2023-03-05', 'P', 'Loja 3', 3, '11122233344', 3, 0),
+('2023-04-15', 'CD', 'Loja 4', 4, '55566677788', 4, 0),
+('2023-05-25', 'D', 'Loja 5', 5, '99988877766', 5, 0);
 
 INSERT INTO contem (idVenda, idProduto, quantidade)
 VALUES
